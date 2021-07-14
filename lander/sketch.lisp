@@ -4,7 +4,6 @@
 
 (in-package :sketches)
 
-
 (defclass lander-sprite ()
   ((x
     :initform 0
@@ -25,10 +24,10 @@
     :initform 0.03721
     :accessor ay)
    (width
-    :initform 80
+    :initform 50
     :accessor width)
    (height
-    :initform 80
+    :initform 50
     :accessor height)
    (is-crashed
     :initform nil
@@ -70,7 +69,7 @@
     (incf (vy obj) (ay obj))
     )
   (when (in-collision? obj)
-    (when (>= (vy obj) 0.055)
+    (when (>= (vy obj) 0.55)
       (setf (is-crashed obj) T)
       (setf (sprite-filename obj) "fire.png"))
     )
